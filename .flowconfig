@@ -1,0 +1,14 @@
+[ignore]
+
+[include]
+
+[libs]
+
+[lints]
+all=warn
+[options]
+emoji=true
+
+
+[strict]
+

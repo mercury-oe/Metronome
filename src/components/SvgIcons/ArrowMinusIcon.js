@@ -1,11 +1,15 @@
-import React, { Component } from 'react'
-import classNames from 'classnames'
-// ======================================================
-// Component
-// ======================================================
-export default class ArrowMinusIcon extends Component {
+// @flow
+import React, { Component } from 'react';
+import classNames from 'classnames';
+
+type Props = {
+  className: string,
+};
+
+export default class ArrowMinusIcon extends Component<Props> {
   render() {
-    const { className } = this.props
+    const { className } = this.props;
+
     return (
       <svg className={classNames('SvgIcon SvgIcon__arrow-minus', className)} viewBox="0 0 64 58">
         <g fill="none" fillRule="evenodd" strokeLinecap="round" transform="translate(1 1)">
@@ -15,6 +19,6 @@ export default class ArrowMinusIcon extends Component {
           <path stroke="#D75A4A" strokeWidth="2" d="M0 28h24" />
         </g>
       </svg>
-    )
+    );
   }
 }

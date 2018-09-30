@@ -1,36 +1,12 @@
-import React, { Component } from 'react'
-// ======================================================
-// Helpers and utils
-// ======================================================
+// @flow
+import React, { Component } from 'react';
 
-// ======================================================
-// Components and css
-// ======================================================
-import { ArrowPlusIcon, ArrowMinusIcon } from 'components/SvgIcons'
-import './Bpm.css'
-// ======================================================
-// Static
-// ======================================================
+import { ArrowPlusIcon, ArrowMinusIcon } from '../SvgIcons';
+import './Bpm.css';
 
-// ======================================================
-// Component
-// ======================================================
-export default class Bpm extends Component {
-  // ======================================================
-  // Life cycles
-  // ======================================================
+type Props = {};
 
-  // ======================================================
-  // Helpers
-  // ======================================================
-
-  // ======================================================
-  // Handlers
-  // ======================================================
-
-  // ======================================================
-  // Render
-  // ======================================================
+export default class Bpm extends Component<Props> {
   render() {
     return (
       <div className={'Bpm'}>
@@ -38,6 +14,6 @@ export default class Bpm extends Component {
         <span className={'Bpm__rate'}>120</span>
         <ArrowPlusIcon className={'Bpm__arrow Bpm__arrow--plus'} />
       </div>
-    )
+    );
   }
 }

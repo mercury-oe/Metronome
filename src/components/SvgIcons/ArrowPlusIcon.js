@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
-import classNames from 'classnames'
-// ======================================================
-// Component
-// ======================================================
-export default class PlusIcon extends Component {
+// @flow
+import React, { Component } from 'react';
+import classNames from 'classnames';
+
+type Props = {
+  className: string,
+};
+
+export default class PlusIcon extends Component<Props> {
   render() {
-    const { className } = this.props
+    const { className } = this.props;
     return (
       <svg className={classNames('SvgIcon SvgIcon__arrow-plus', className)} viewBox="0 0 64 58">
         <g fill="none" fillRule="evenodd" strokeLinecap="round" transform="matrix(-1 0 0 1 63 1)">
@@ -17,6 +20,6 @@ export default class PlusIcon extends Component {
           </g>
         </g>
       </svg>
-    )
+    );
   }
 }

@@ -10,7 +10,8 @@
     ]
   },
   "plugins": [
-    "prettier"
+    "prettier",
+    "flowtype"
   ],
   "settings": {
     "import/resolver": {

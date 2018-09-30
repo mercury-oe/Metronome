@@ -13,13 +13,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "precommit": "lint-staged",
-    "eslint": "node_modules/.bin/eslint src/"
+    "eslint": "node_modules/.bin/eslint src/",
+    "stylelint": "node_modules/.bin/stylelint src/"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
     "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-flowtype": "^2.50.3",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^2.7.0",
+    "flow-bin": "^0.81.0",
+    "flow-typed": "^2.5.1",
     "husky": "^1.0.1",
     "lint-staged": "^7.3.0",
     "prettier": "^1.14.3",
@@ -35,9 +40,14 @@
       "prettier --write",
       "git add"
     ],
-    "*.css": [
+    "*.{css}": [
       "stylelint --syntax=css",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

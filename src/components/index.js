@@ -1,1 +1,2 @@
-export { default as Bpm } from './Bpm'
+// @flow
+export { default as Bpm } from './Bpm';
