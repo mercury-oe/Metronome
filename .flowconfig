@@ -9,6 +9,6 @@ all=warn
 [options]
 emoji=true
 
-
+module.name_mapper='^components\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
 [strict]
 

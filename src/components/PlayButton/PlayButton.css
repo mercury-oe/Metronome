@@ -1,0 +1,36 @@
+.PlayButton {
+  display: block;
+  border: 0;
+  padding: 0;
+  background-color: var(--light-grey);
+  border-radius: var(--border-rdius);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.PlayButton:hover {
+  background-color: var(--dark-grey);
+}
+
+.PlayButton:focus {
+  outline: 0;
+}
+
+.PlayButton__icon {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 320px) {
+
+  .PlayButton {
+    width: 220px;
+    height: 65px;
+    margin-top: 65px;
+    padding: 10px 0;
+  }
+
+  .PlayButton__icon {
+    max-height: 40px;
+  }
+}

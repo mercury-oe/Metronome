@@ -1,4 +1,7 @@
 :root {
   --dark-blue: #424A60;
   --light-grey: #E7ECED;
+  --dark-grey: #E7ECEDE6;
+  --darker-grey: #E7ECEDBD;
+  --border-rdius: 5px;
 }

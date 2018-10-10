@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 type Props = {
-  className: string,
+  className?: string,
 };
 
 export default class ArrowMinusIcon extends Component<Props> {
