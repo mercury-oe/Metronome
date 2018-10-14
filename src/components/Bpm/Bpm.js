@@ -6,14 +6,43 @@ import './Bpm.css';
 
 type Props = {};
 
-export default class Bpm extends Component<Props> {
+type State = {
+  bpm: number,
+};
+
+const MIN_BPM_VALUE = 40;
+const MAX_BPM_VALUE = 280;
+
+export default class Bpm extends Component<Props, State> {
+  state = {
+    bpm: 120,
+  };
+
   render() {
     return (
       <div className={'Bpm'}>
-        <ArrowMinusIcon className={'Bpm__arrow Bpm__arrow--minus'} />
-        <span className={'Bpm__rate'}>120</span>
-        <ArrowPlusIcon className={'Bpm__arrow Bpm__arrow--plus'} />
+        <button onClick={this.onMinusClick} className={'BpmButton BpmButton--minus'}>
+          <ArrowMinusIcon className={'BpmButton__icon'} />
+        </button>
+        <span className={'Bpm__rate'}>{this.state.bpm}</span>
+        <button onClick={this.onPlusClick} className={'BpmButton BpmButton--plus'}>
+          <ArrowPlusIcon className={'BpmButton__icon'} />
+        </button>
       </div>
     );
   }
+
+  onMinusClick = () => {
+    const { bpm } = this.state;
+    if (bpm > MIN_BPM_VALUE) {
+      this.setState({ bpm: bpm - 1 });
+    }
+  };
+
+  onPlusClick = () => {
+    const { bpm } = this.state;
+    if (bpm < MAX_BPM_VALUE) {
+      this.setState({ bpm: bpm + 1 });
+    }
+  };
 }

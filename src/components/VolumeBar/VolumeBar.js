@@ -21,6 +21,20 @@ export default class VolumeBar extends Component<Props, State> {
 
   input: { current: null | HTMLInputElement } = createRef();
 
+  render() {
+    return (
+      <div className={'VolumeBar'}>
+        <input
+          className={`VolumeBar__range VolumeBar__range--${this.state.type}`}
+          type="range"
+          ref={this.input}
+          value={this.state.volume}
+          onChange={this.onChange}
+        />
+      </div>
+    );
+  }
+
   onChange = ({ target }: { target: HTMLInputElement }) => {
     const value: string = target.value;
 
@@ -36,18 +50,4 @@ export default class VolumeBar extends Component<Props, State> {
       type,
     });
   };
-
-  render() {
-    return (
-      <div className={'VolumeBar'}>
-        <input
-          className={`VolumeBar__range VolumeBar__range--${this.state.type}`}
-          type="range"
-          ref={this.input}
-          value={this.state.volume}
-          onChange={this.onChange}
-        />
-      </div>
-    );
-  }
 }

@@ -1,12 +1,18 @@
 .Bpm__rate {
   display: inline-block;
   min-width: 186px;
+  text-align: center;
   padding: 30px 25px;
   margin-right: 15px;
   margin-left: 15px;
   border-radius: var(--border-radius);
   background-color: var(--gray);
   color: var(--dark-blue);
+}
+
+.BpmButton__icon {
+  width: 100%;
+  height: 100%;
 }
 
 @media (min-width: 320px) {
@@ -17,8 +23,8 @@
     line-height: 58px;
   }
 
-  .Bpm__arrow {
-    width: 62px;
+  .BpmButton {
+    width: 64px;
     height: 60px;
   }
 }
