@@ -1,0 +1,113 @@
+.VolumeBar__range[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  height: 100%;
+  margin: 0;
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+/* SLIDER THUMB */
+.VolumeBar__range[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  background-repeat: no-repeat;
+  background-color: var(--green);
+  position: relative;
+}
+
+.VolumeBar__range--full[type=range]::-webkit-slider-thumb {
+  background-image: var(--sound-on);
+  right: -1px;
+}
+
+.VolumeBar__range--half[type=range]::-webkit-slider-thumb {
+  background-image: var(--sound-half);
+}
+
+.VolumeBar__range--empty[type=range]::-webkit-slider-thumb {
+  background-color: var(--red);
+  background-image: var(--sound-off);
+  right: auto;
+  left: -1px;
+}
+
+/* SLIDER */
+.VolumeBar__range[type=range]::-ms-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+
+.VolumeBar__range[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  background: var(--gray);
+  border-radius: var(--border-radius);
+}
+
+.VolumeBar__range[type=range]::-moz-range-track {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: var(--gray);
+  border-radius: var(--border-radius);
+}
+
+.VolumeBar__range[type=range]::-ms-fill-lower {
+  background: var(--gray);
+  border-radius: var(--border-radius);
+}
+
+.VolumeBar__range[type=range]::-ms-fill-upper {
+  background: var(--gray);
+  border-radius: var(--border-radius);
+}
+
+.VolumeBar__range[type=range]:focus {
+  outline: none;
+}
+
+.VolumeBar__range[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--gray);
+}
+
+.VolumeBar__range[type=range]:focus::-ms-fill-lower {
+  background: var(--gray);
+}
+
+.VolumeBar__range[type=range]:focus::-ms-fill-upper {
+  background: var(--gray);
+}
+
+.VolumeBar__bar {
+  display: block;
+  background-color: var(--gray);
+  border-radius: var(--border-radius);
+  position: relative;
+}
+
+@media (min-width: 320px) {
+
+  .VolumeBar {
+    margin-top: 45px;
+    width: 245px;
+    height: 15px;
+  }
+
+  .VolumeBar__range[type=range]::-webkit-slider-thumb {
+    height: 41px;
+    width: 41px;
+  }
+}

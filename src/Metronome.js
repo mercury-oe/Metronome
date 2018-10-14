@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
+import { Bar, Bpm, PlayButton, VolumeBar } from './components';
 import './Metronome.css';
-import { Bar, Bpm, PlayButton } from './components';
 
 type Props = {};
 
@@ -12,6 +12,7 @@ class Metronome extends Component<Props> {
         <Bpm />
         <Bar />
         <PlayButton />
+        <VolumeBar />
       </div>
     );
   }

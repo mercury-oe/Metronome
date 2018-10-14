@@ -1,7 +1,7 @@
 .Bar {
   min-width: 186px;
-  background-color: var(--light-grey);
-  border-radius: var(--border-rdius);
+  background-color: var(--gray);
+  border-radius: var(--border-radius);
   text-align: center;
 }
 

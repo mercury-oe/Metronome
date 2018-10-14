@@ -2,14 +2,14 @@
   display: block;
   border: 0;
   padding: 0;
-  background-color: var(--light-grey);
-  border-radius: var(--border-rdius);
+  background-color: var(--gray);
+  border-radius: var(--border-radius);
   cursor: pointer;
   transition: all 200ms ease;
 }
 
 .PlayButton:hover {
-  background-color: var(--dark-grey);
+  background-color: var(--dark-gray);
 }
 
 .PlayButton:focus {

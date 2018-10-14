@@ -1,7 +1,20 @@
 :root {
+  /* COLORS */
   --dark-blue: #424A60;
-  --light-grey: #E7ECED;
-  --dark-grey: #E7ECEDE6;
-  --darker-grey: #E7ECEDBD;
-  --border-rdius: 5px;
+  --gray: #E7ECED;
+  --dark-gray: #E7ECEDE6;
+  --darker-gray: #E7ECEDBD;
+  --green: #23A24D;
+  --red: #D75A4A;
+  --yellow: #EBBA16;
+  --white: #FFF;
+  --black: #000;
+
+  /* ICONS */
+  --sound-on: url("../icons/sound-on.svg");
+  --sound-off: url("../icons/sound-off.svg");
+  --sound-half: url("../icons/sound-half.svg");
+
+  /* OTHER */
+  --border-radius: 5px;
 }

@@ -1,12 +1,12 @@
 // @flow
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 
 type Props = {
   className?: string,
 };
 
-export default class StopSvgIcon extends Component<Props> {
+export default class StopSvgIcon extends PureComponent<Props> {
   render() {
     const { className } = this.props;
     return (
