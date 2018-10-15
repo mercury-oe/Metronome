@@ -11,13 +11,15 @@ export default class ArrowMinusIcon extends PureComponent<Props> {
     const { className } = this.props;
 
     return (
-      <svg className={classNames('SvgIcon SvgIcon__arrow-minus', className)} viewBox="0 0 59 58">
-        <g fill="none" fillRule="evenodd" strokeLinecap="round" transform="translate(1 1)">
-          <g stroke="#E7ECED" strokeWidth="2" transform="translate(29)">
-            <path d="M0 28L28 0M0 28l28 28" />
-          </g>
-          <path className={'SvgIcon__sign'} stroke="#D75A4A" strokeWidth="2" d="M0 28h24" />
-        </g>
+      <svg className={classNames('SvgIcon SvgIcon__arrow-minus', className)} viewBox="0 0 30 30">
+        <path
+          fill="none"
+          stroke="#D75A4A"
+          strokeLinecap="round"
+          strokeWidth="2"
+          d="M1 1h24"
+          transform="translate(2, 13)"
+        />
       </svg>
     );
   }

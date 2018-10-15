@@ -1,5 +1,7 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
+
+import findParentNode from 'helpers/find-parent-node';
 
 import { ArrowPlusIcon, ArrowMinusIcon } from '../SvgIcons';
 import './Bpm.css';
@@ -14,23 +16,60 @@ const MIN_BPM_VALUE = 40;
 const MAX_BPM_VALUE = 280;
 
 export default class Bpm extends Component<Props, State> {
+  plus: { current: null | HTMLButtonElement } = createRef();
+  minus: { current: null | HTMLButtonElement } = createRef();
+  changeValueInterval: IntervalID;
+
+  static onSetClass(target: EventTarget) {
+    const node = findParentNode(target, 'BUTTON');
+    node.classList.add('BpmButton--active');
+  }
+
   state = {
     bpm: 120,
   };
 
+  componentDidMount() {
+    document.addEventListener('mouseup', this.onMouseUp);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mouseup', this.onMouseUp);
+  }
+
   render() {
     return (
       <div className={'Bpm'}>
-        <button onClick={this.onMinusClick} className={'BpmButton BpmButton--minus'}>
+        <button
+          ref={this.minus}
+          onClick={this.onMinusClick}
+          onMouseDown={this.onMinusMouseDown}
+          className={'BpmButton BpmButton--minus'}
+        >
           <ArrowMinusIcon className={'BpmButton__icon'} />
         </button>
         <span className={'Bpm__rate'}>{this.state.bpm}</span>
-        <button onClick={this.onPlusClick} className={'BpmButton BpmButton--plus'}>
+        <button
+          ref={this.plus}
+          onClick={this.onPlusClick}
+          onMouseDown={this.onPlusMouseDown}
+          className={'BpmButton BpmButton--plus'}
+        >
           <ArrowPlusIcon className={'BpmButton__icon'} />
         </button>
       </div>
     );
   }
+
+  onMinusMouseDown = ({ target }: { target: EventTarget }) => {
+    Bpm.onSetClass(target);
+    this.changeValueInterval = setInterval(this.onMinusClick, 200);
+  };
+
+  onPlusMouseDown = ({ target }: { target: EventTarget }) => {
+    Bpm.onSetClass(target);
+    this.changeValueInterval = setInterval(this.onPlusClick, 200);
+  };
 
   onMinusClick = () => {
     const { bpm } = this.state;
@@ -44,5 +83,15 @@ export default class Bpm extends Component<Props, State> {
     if (bpm < MAX_BPM_VALUE) {
       this.setState({ bpm: bpm + 1 });
     }
+  };
+
+  onMouseUp = () => {
+    if (this.minus.current) {
+      this.minus.current.classList.remove('BpmButton--active');
+    }
+    if (this.plus.current) {
+      this.plus.current.classList.remove('BpmButton--active');
+    }
+    clearInterval(this.changeValueInterval);
   };
 }
