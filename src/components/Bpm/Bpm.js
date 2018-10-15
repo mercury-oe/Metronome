@@ -31,10 +31,12 @@ export default class Bpm extends Component<Props, State> {
 
   componentDidMount() {
     document.addEventListener('mouseup', this.onMouseUp);
+    document.addEventListener('touchend', this.onMouseUp);
   }
 
   componentWillUnmount() {
     document.removeEventListener('mouseup', this.onMouseUp);
+    document.removeEventListener('touchend', this.onMouseUp);
   }
 
   render() {
@@ -43,7 +45,8 @@ export default class Bpm extends Component<Props, State> {
         <button
           ref={this.minus}
           onClick={this.onMinusClick}
-          onMouseDown={this.onMinusMouseDown}
+          onMouseDown={this.onMinusDown}
+          onTouchStart={this.onMinusDown}
           className={'BpmButton BpmButton--minus'}
         >
           <ArrowMinusIcon className={'BpmButton__icon'} />
@@ -52,7 +55,8 @@ export default class Bpm extends Component<Props, State> {
         <button
           ref={this.plus}
           onClick={this.onPlusClick}
-          onMouseDown={this.onPlusMouseDown}
+          onMouseDown={this.onPlusDown}
+          onTouchStart={this.onPlusDown}
           className={'BpmButton BpmButton--plus'}
         >
           <ArrowPlusIcon className={'BpmButton__icon'} />
@@ -61,12 +65,12 @@ export default class Bpm extends Component<Props, State> {
     );
   }
 
-  onMinusMouseDown = ({ target }: { target: EventTarget }) => {
+  onMinusDown = ({ target }: { target: EventTarget }) => {
     Bpm.onSetClass(target);
     this.changeValueInterval = setInterval(this.onMinusClick, 200);
   };
 
-  onPlusMouseDown = ({ target }: { target: EventTarget }) => {
+  onPlusDown = ({ target }: { target: EventTarget }) => {
     Bpm.onSetClass(target);
     this.changeValueInterval = setInterval(this.onPlusClick, 200);
   };
